@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1553026327 source:/home/helalubo/Escritorio/C./ParcialesDeIngresoEnC/resolucionDeParciales/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
