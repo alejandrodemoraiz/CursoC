@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1553307733 source:/home/helalubo/Escritorio/C./ParcialesDeIngresoEnC/jajaja/main.c
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+

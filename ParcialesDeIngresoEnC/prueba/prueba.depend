@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1553231645 source:/home/helalubo/Escritorio/C./ParcialesDeIngresoEnC/prueba/main.c
+	<stdio.h>
+	<stdlib.h>
+
