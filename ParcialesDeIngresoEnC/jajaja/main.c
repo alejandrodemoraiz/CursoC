@@ -26,14 +26,17 @@ int main()
 
         printf("Ingrese sexo f 0 m del alumno # %d", contador);
         fflush(stdin);
-        scanf("%s",sexo);
+                         sexo =getchar();
+        scanf("%c",&sexo);
 
-   while(sexo != "m" && sexo != "f")
+   while(sexo != 'm' && sexo != 'f')
         {
 
                 printf("ERROR! ingrese sexo valido, m para masculino, f para femenino");
                   fflush(stdin);
-                scanf("%s",sexo);
+                  sexo =getchar();
+
+                scanf("%c",&sexo);
         }
 
     }

@@ -12,6 +12,7 @@ int main()
   char sexo;
 
 
+
     while (contador <5)
     {
         contador ++;
@@ -23,7 +24,7 @@ int main()
         {
            printf(" ERROR! Ingrese la nota del alumno # %d ",contador);
                 fflush(stdin);
-            scanf("%d", nota);
+            scanf("%d",&nota);
 
         }
 

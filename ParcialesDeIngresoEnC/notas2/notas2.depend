@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1553315482 source:/home/helalubo/Escritorio/C./ParcialesDeIngresoEnC/notas2/main.c
+1553327105 source:/home/helalubo/Escritorio/C./ParcialesDeIngresoEnC/notas2/main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
+	<math.h>
 

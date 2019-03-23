@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>
 int main()
 {
   int nota;
@@ -58,7 +59,7 @@ int main()
                 notaMasAlta = nota;
             }
         }
-           printf("para ingresar mas escriba: s ");
+        printf("para ingresar mas escriba: s ");
         fflush(stdin);
         seguir = getchar();
         scanf("%c", &seguir);
@@ -68,10 +69,11 @@ int main()
 
     promedio = (float)(cantidadDeNumeros / contador);
 
-    printf(" la canidad de numeros pares es de %d , la suma de todas las notas es de %d , el la nota maxima es %d la nota minima es %d y el promedio es de %.2f .",cantidadDePares,cantidadDeNumeros,notaMasAlta,notaMasBaja,promedio);
-
-
-
+    printf(" la canidad de numeros pares es de %d\n",cantidadDePares);
+    printf( "la suma de todas las notas es de %d\n",cantidadDeNumeros);
+    printf("el la nota maxima es %d\n",notaMasAlta);
+    printf("la nota minima es %d\n",notaMasBaja);
+    printf(" el promedio es de %.2f\n",promedio);
 
 
    return 0;

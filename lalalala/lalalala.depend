@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1553315234 source:/home/helalubo/Escritorio/C./lalalala/main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+
