@@ -19,7 +19,7 @@ int main()
     printf("Ingrese letra #%d",contador);
     fflush(stdin);
     letraIngresada=getchar();
-    tolower(letraIngresada);
+
     scanf("%c",&letraIngresada);
 
 
