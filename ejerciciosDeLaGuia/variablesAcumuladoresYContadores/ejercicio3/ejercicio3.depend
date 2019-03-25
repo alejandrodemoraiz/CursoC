@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1553489860 source:/home/helalubo/Escritorio/C./ejerciciosDeLaGuia/variablesAcumuladoresYContadores/ejercicio3/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
