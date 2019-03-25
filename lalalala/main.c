@@ -1,50 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 
 int main()
 {
-  int notas;
-  char seguir = 's';
-  int contador =0;
-  int aprobados =0;
-  int pares =0;
+ char letraIngresada;
+ int contador = 0;
+ int contadorA= 0;
+ int contadorE= 0;
+  int contadorI= 0;
+   int contadorO= 0;
+    int contadorU= 0;
 
-
-  while(seguir == 's')
-  {
-    contador++;
-    printf("Ingrese nota de un alumno #%d",contador);
+ while (contador <20)
+ {
+    contador ++;
+    printf("Ingrese letra #%d",contador);
     fflush(stdin);
-    scanf("%d",&notas);
+    letraIngresada=getchar();
+    scanf("%c",&letraIngresada);
 
-    while(notas < 1 || notas >10)
+
+ if(letraIngresada == 'a')
     {
-    printf("ERROR! Ingrese una nota valida para el alumno #%d",contador);
-    fflush(stdin);
-    scanf("%d",&notas);
+      contadorA++;
+    }
+ if(letraIngresada == 'e')
+    {
+      contadorE++;
+    }
+     if(letraIngresada == 'i')
+    {
+      contadorI++;
+    }
+     if(letraIngresada == 'o')
+    {
+      contadorO++;
+    }
+     if(letraIngresada == 'u')
+    {
+      contadorU++;
     }
 
-    printf("escriba la letra ==>s para continuar");
-     fflush(stdin);
-    seguir = getchar();
-    scanf("%c",&seguir);
+
+ }
+
+printf ("la cantidad de a ingresada es de %c",contadorA);
+printf ("la cantidad de e ingresada es de %c",contadorE);
+printf ("la cantidad de i ingresada es de %c",contadorI);
+printf ("la cantidad de o ingresada es de %c",contadorO);
+printf ("la cantidad de u ingresada es de %c",contadorU);
 
 
-    if(notas > 5)
-   {
-
-    aprobados++;
-   }
-
-   if( notas%2 ==0)
-   {
-        pares++;
-   }
-  }
-
-  printf( " la cantidad de alumnos aprobados es de %d",aprobados);
-    printf( " la cantidad de notas pares es de %d",pares);
 
 
     return 0;
