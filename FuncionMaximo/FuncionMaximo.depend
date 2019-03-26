@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1553559133 source:c:\users\alumno\desktop\a\cursoc-y-ejercicios\funcionmaximo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"maximo.h"
+
+1553559415 c:\users\alumno\desktop\a\cursoc-y-ejercicios\funcionmaximo\maximo.h
+
+1553559490 source:c:\users\alumno\desktop\a\cursoc-y-ejercicios\funcionmaximo\maximo.c
+
