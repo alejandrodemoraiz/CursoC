@@ -16,9 +16,9 @@ int main()
 }
    int contarPares(int vec[], int tam)
    {
-       int pares =0;
+       int pares =-1;
 
-       for(int i =-1; i< tam; i++)
+       for(int i =0; i< tam; i++)
        {
            if(vec[i] %2 ==0)
            {
