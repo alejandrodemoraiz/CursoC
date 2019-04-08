@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1554559704 source:/home/alumno/Documentos/ale/prueba/main.c
+	<stdio_ext.h>
+	<stdlib.h>
+

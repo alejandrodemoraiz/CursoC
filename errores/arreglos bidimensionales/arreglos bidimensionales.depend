@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1554732148 source:/home/helalubo/Escritorio/programacion2018/curso youtube c/arreglos/56/arreglos bidimensionales/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
