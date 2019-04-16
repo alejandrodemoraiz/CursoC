@@ -1,0 +1,59 @@
+/***********************************************************/legajo, nombre, sexo, sueldo,fecha en struct aparte.
+void HarcodeoDe( eEmpleado vec[], int tam)
+{
+    eEmpleado empleados[10] ={
+        { 4444, "juan", 'm',8000, 1,{2, 9, 1995}},
+        { 4454, "Alejandro", 'm',8000, 1,{10, 9, 1998}},
+        { 9994, "Rodrigo", 'm',8000, 1,{8, 9, 1995}},
+        { 4574, "francisca", 'f',8000, 1,{2, 11, 2000}},
+        { 1001, "Giselle", 'f',8000, 1,{3, 5, 1996}},
+
+    };
+  for( int i = 0; i<tam; i++)
+  {
+        vec[i] = empleados[i];
+
+
+  }
+}
+
+
+/***********************************************************/legajo, nombre, sexo, sueldo,fecha en struct aparte.
+void HarcodeoDeSocios( eSocios vec[], int tam)
+{
+    eSocios socios[10] ={
+        { 4444, "juana", 'f',8000, 1,{2, 9, 1995}},
+        { 4454, "Alejandro", 'm',8000, 1,{10, 9, 1998}},
+        { 9994, "Alejo", 'm',8000, 1,{8, 9, 1995}},
+        { 4574, "Maite", 'f',8000, 1,{2, 11, 2000}},
+        { 1001, "Giselle", 'f',8000, 1,{3, 5, 1996}},
+
+    };
+  for( int i = 0; i<tam; i++)
+  {
+        vec[i] = socios[i];
+
+
+  }
+}
+
+/***********************************************************/codigo, nombreDeMarca,tipo,precio,estado, fecha de caducidad.
+
+void HarcodeoDeMarcas( eMarcas vec[], int tam) 
+{
+    eMarcas marcas[10] ={
+        { 4444, "Manaos", 'f',45, 1,{2, 9, 2021}},
+        { 4454, "Ferrero", 'f',80, 1,{10, 9, 2021}},
+        { 9994, "Lays", 'n',55, 1,{8, 9, 2020}},
+        { 4574, "Coca-cola", 'f',90, 1,{2, 11, 2020}},
+        { 1001, "Quilmes", 'f',65, 1,{3, 5, 2021}},
+         { 9904, "Oreo", 'n',35, 1,{8, 9, 2020}},
+    };
+  for( int i = 0; i<tam; i++)
+  {
+        vec[i] = marcas[i];
+
+
+  }
+}
+/***********************************************************/
