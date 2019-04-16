@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <conio.h>
 
-#define TAM 2
+#define TAM 5
 typedef struct
 {
 
@@ -22,7 +22,7 @@ typedef struct
     char sexo;
     float sueldo;
     int ocupado;
-    eFecha fechaIngreso;
+    eFecha fechaIngreso; // para scanf usar esta variable, no directamente la struct creada...
 
 } eEmpleado;
 
@@ -35,13 +35,18 @@ void mostrarEmpleados(eEmpleado vec[], int tam);
 void altaEmpleado(eEmpleado vec[], int tam);
 void bajaEmpleado(eEmpleado vec[], int tam);
 void ModificacionEmpleado(eEmpleado vec[], int tam);
+void HarcodeoDe ( eEmpleado vec[], int tam);
+void mostrarAnio( eEmpleado vec[], int tam, int anio);
+
 
 int main()
 {
     char seguir = 's';
     char confirma;
+    int anio;
     eEmpleado lista[TAM];
-    inicializarEmpleados(lista, TAM); // llamada
+    //inicializarEmpleados(lista, TAM); // llamada
+    HarcodeoDe(lista,TAM);
 
     do
     {
@@ -78,6 +83,14 @@ int main()
             break;
 
         case 6:
+                printf("Ingrese anio que desea buscar");
+                scanf("%d",&anio);
+                mostrarAnio(lista,TAM,anio);
+                system("pause");
+
+            break;
+
+        case 7:
             printf("\nConfirma salida s/n?: ");
             fflush(stdin);
             confirma = getche();
@@ -118,7 +131,9 @@ int menu()
     printf("3- Modificacion Empleado\n");
     printf("4- Ordenar Empleados\n");
     printf("5- Listar Empleados\n");
-    printf("6- Salir\n\n");
+    printf("6- Informes\n");
+
+    printf("7- Salir\n\n");
     printf("Ingrese opcion: ");
     scanf("%d", &opcion);
 
@@ -160,7 +175,7 @@ int buscarEmpleado(eEmpleado vec[], int tam, int legajo)
 void mostrarEmpleado(eEmpleado empleado)
 {
 
-    printf("%d  %s %c 0%d/%d/%d",empleado.legajo,empleado.nombre,empleado.sexo,empleado.fechaIngreso);
+    printf("%d  %s %c %d/%d/%d\n",empleado.legajo,empleado.nombre,empleado.sexo,empleado.fechaIngreso);
 }
 
 void mostrarEmpleados(eEmpleado vec[], int tam)
@@ -317,6 +332,49 @@ void ModificacionEmpleado(eEmpleado vec[], int tam)
             printf("\nNo se ha modificado el sueldo\n");
         }
 
+    }
+
+
+
+
+
+}
+void HarcodeoDe( eEmpleado vec[], int tam)
+{
+    eEmpleado empleados[10] =
+    {
+        { 4444, "juan", 'm',8000, 1,{2, 9, 1995}},
+        { 4454, "Alejandro", 'm',8000, 1,{10, 9, 1998}},
+        { 9994, "Rodrigo", 'm',8000, 1,{8, 9, 1995}},
+        { 4574, "francisca", 'f',8000, 1,{2, 11, 2000}},
+        { 1001, "Giselle", 'f',8000, 1,{3, 5, 1996}},
+
+    };
+    for( int i = 0; i<tam; i++)
+    {
+        vec[i] = empleados[i];
+
+
+    }
+}
+void mostrarAnio( eEmpleado vec[], int tam, int anio)
+{
+
+    int cont= 0;
+
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].ocupado == 1 && vec[i].fechaIngreso.anio == anio)
+        {
+
+            mostrarEmpleado(vec[i]);
+            cont++;
+
+        }
+    }
+    if(cont == 0)
+    {
+        printf("No hay empleados de ese anio\n\n");
     }
 
 
