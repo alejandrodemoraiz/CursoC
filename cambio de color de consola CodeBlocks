@@ -1,0 +1,22 @@
+********************************************************************
+    
+    EN EL MAIN INGRESAR LO SIGUIENTE:
+
+int main()
+{
+
+    system("color 4F"); // fondo Rojo, letra blanco brillante (F)
+    
+    
+    }
+    
+    
+  ********************************************************************
+  
+  
+  
+  system("color RGB")
+ ;
+ 
+ 
+ para menu de colores disponibles para la consola....
