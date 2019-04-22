@@ -32,7 +32,8 @@ void HarcodeoDeSocios( eSocios vec[], int tam)
   for( int i = 0; i<tam; i++)
   {
         vec[i] = socios[i];
-
+        
+        vec[i].ocupado =1;  //IMPORTANTE! 
 
   }
 }
