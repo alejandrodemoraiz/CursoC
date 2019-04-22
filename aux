@@ -228,7 +228,7 @@ void altaEmpleados (eEmpleados vec[], int tam)
     int legajo;
     int esta;
     int indice;
-    char opc[25];
+    int opc;
 
 
     indice = buscarVacio(vec,tam);
@@ -270,16 +270,51 @@ void altaEmpleados (eEmpleados vec[], int tam)
 
 
             printf("Elija sector para el empleado\n");
-            printf("Informatica\n");
-            printf("Publicidad\n");
-            printf("Contabilidad\n");
-            printf("Administracion\n");
-            printf("RRHH \n");
-            printf("ingrese opcion correspondiente: ");
+            printf("1-Informatica\n");
+            printf("2-Publicidad\n");
+            printf("3-Contabilidad\n");
+            printf("4-Administracion\n");
+            printf("5-RRHH \n");
+            printf("6-ingrese opcion correspondiente: ");
 
-            scanf("%s",opc);
+            scanf("%d",&opc);
 
-            strcpy(vec[indice].sector,opc);
+            switch(opc){
+
+            case 1 :
+
+                    strcpy(vec[indice].sector,"Informatica");
+
+
+            break;
+
+             case 2 :
+
+                    strcpy(vec[indice].sector,"Publicidad");
+
+
+            break;
+             case 3:
+
+                    strcpy(vec[indice].sector,"Contabilidad");
+
+
+            break;
+             case 4 :
+
+                    strcpy(vec[indice].sector,"Administracion");
+
+
+            break;
+             case 5 :
+
+                    strcpy(vec[indice].sector,"RRHH");
+
+
+            break;
+
+            }
+
 
 
 
