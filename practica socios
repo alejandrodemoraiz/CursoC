@@ -1,0 +1,513 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+
+#define TAM 15
+#define TAMDEP 5
+#define TAMALM 20
+#define TAMCOM 5
+
+
+typedef struct
+{
+
+    int dia;
+    int mes;
+    int anio;
+
+
+} eFecha;
+
+typedef struct
+{
+
+    int ID;
+    char nombreDeDeporte[25];
+
+
+} eDeportes;
+
+
+typedef struct
+{
+
+    int legajo;
+    char nombre[25];
+    int edad;
+    char sexo;
+
+    eFecha fechaDeNacimiento;
+    int IdDeporte;
+    int estado;
+
+
+} eSocios;
+typedef struct
+{
+
+    int IdComida;
+    char descripcioComida [25];
+
+
+
+} eComidas;
+
+typedef struct
+{
+
+    int legajoDeSocioQueComio;
+    int idAlmuerzo;
+    int idComida;
+    eFecha fecha;
+
+
+
+} eAlmuerzos;
+
+//funciones
+
+
+
+int main()
+{
+
+    char respuesta = 'n';
+    eDeportes deportes[] = {{1,"Futbol"},{2, "Tenis"},{3,"Basquet"},{4,"boxeo"},{5,"Hokey"}};
+
+    eSocios planilla[TAM] =
+    {
+        {7777,"Alejandro",23,'m',{02,9,1995},1,1},
+        {1234,"Mika",20,'f',{05,10,1995},1,1},
+        {6547,"Rosa",18,'f',{06,02,1995},2,1},
+        {2344,"Jorge",15,'m',{03,01,1995},3,1},
+        {1224,"Nico",19,'m',{04,8,1995},1,1},
+        {9887,"Maite",55,'f',{05,11,1995},5,1},
+        {8888,"Alejo",78,'m',{12,11,1995},1,1},
+        {1864,"Nuriel",20,'f',{23,12,1995},3,1},
+        {1475,"Ana",23,'f',{21,03,1995},2,1},
+        {9874,"Daina",23,'f',{21,8,1995},1,1},
+
+    };
+
+    eComidas comida [] =
+    {
+
+
+        {1, "Comida"},
+        {2, "Empanadas"},
+        {3, "Milanesas"},
+        {4, "tarta"},
+        {5," Ensalada"},
+
+
+
+    };
+
+    eAlmuerzos almuerzo [ ] =
+    {
+
+
+        {110,1234, 1,{12,3,2018}},
+        {111,2222, 4, {2,7,2018}},
+        {112,2211, 4, {14,5,2018}},
+        {113,3241, 1,  {2,9,2018}},
+        {114,8944, 1, {12,3,2018}},
+        {115,2231, 3, {28,7,2018}},
+        {116,6578, 2, {11,1,2018} },
+        {117,3425, 3,  {19,10,2018}},
+        {118,5546, 3,  {13,9,2018}},
+        {119,7654, 1,  {23,6,2018}},
+        {120,9040, 1, {18, 7,2018}},
+        {121,7439, 1,  {12,12,2003}},
+        {122,7654, 5,  {23,6,2010}},
+        {123,9040, 3,   {18, 7,2011}},
+        {124,7439, 1,  {12,12,2003}}
+
+
+
+    };
+
+    do
+    {
+        switch(menu())
+        {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            mostrarSocios(planilla,TAM,deportes,TAMDEP);
+            break;
+        case 6:
+            mostrarPorDeporte(deportes,TAM,planilla,TAMDEP);
+            break;
+        case 7:
+            cantidadDeSociosPorSector(deportes,TAMDEP,planilla,TAM);
+            break;
+        case 8:
+
+            deporteConMasSocios(planilla,TAM,deportes,TAMDEP);
+            break;
+        case 9:
+            pedirComida(comida,almuerzo,planilla,TAM);
+
+
+            break;
+
+              case 10:
+                mostrarAlmuerzos(almuerzo,TAMALM,planilla,TAM,comida,TAMCOM);
+
+            break;
+        case 11:
+            printf("Esta seguro que desea salir? S/N?");
+            __fpurge(stdin);
+            scanf("%c",&respuesta);
+            break;
+
+
+
+
+        }
+
+    }
+    while(respuesta != 's');
+
+
+    return 0;
+}
+int menu()
+{
+    int opc;
+    printf("  *** ABM SOCIOS ***\n\n");
+    printf("1- Alta Socio\n");
+    printf("2- Baja Socio\n");
+    printf("3- Modificacion Socio\n");
+    printf("4- Ordenar Socios\n");
+    printf("5- Listar Socios\n");
+    printf("6- Listar socios por Deportes \n");
+    printf("7- Cantidad de socios por deporte\n");
+    printf("8- Deportes con mas socios\n");
+    printf("9- Pedir para comer\n");
+    printf("10- mostrar almuerzos\n");
+
+
+    printf("11- Salir\n\n");
+    printf("Ingrese opcion: ");
+    scanf("%d", &opc);
+
+    return opc;
+
+}
+void inicializarSocios(eSocios vec[], int tam)
+{
+
+
+    for(int i = 0; i< tam; i++)
+    {
+        vec[i].estado =0;
+
+    }
+
+
+
+}
+int buscarVacio(eSocios vec[], int tam,eSocios IdDeporte)
+{
+
+    int indice = -1;
+    for( int i = 0; i<tam; i++)
+    {
+
+        if( vec[i].estado ==0)
+        {
+
+            indice =i;
+
+        }
+
+    }
+
+    return indice;
+}
+void mostrarSocio(eSocios socio, int tam, eDeportes vec[])
+{
+
+    char aux[20];
+    int obtengo;
+
+    obtengo = obtenerSector(vec,tam,socio.IdDeporte,aux);
+
+    if(!obtengo)
+    {
+        strcpy(aux, "Sin definir");
+
+
+
+    }
+    printf(" %d   %10s    %d    %c       %02d/%02d/%4d    %s\n",socio.legajo,socio.nombre,socio.edad,socio.sexo,socio.fechaDeNacimiento.dia,socio.fechaDeNacimiento.mes,socio.fechaDeNacimiento.anio,aux);
+
+
+
+}
+void mostrarSocios(eSocios vec[],int tam,eDeportes deportes[], int tamdep)
+{
+    int contador = 0;
+
+    system("cls");
+
+    printf(" Legajo      Nombre   edad    Sexo         FechaIngreso   deporte\n");
+    printf(" ------      ------    ----   ----        ------------    --------\n");
+
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].estado == 1)
+        {
+            mostrarSocio(vec[i], tamdep,deportes );
+            contador++;
+        }
+    }
+    printf("\n\n");
+
+    if( contador == 0)
+    {
+        printf("\nNo hay empleados que mostrar\n");
+    }
+
+
+
+}
+
+
+int obtenerSector( eDeportes vec[], int tam, int idDeportes, char aux[])
+{
+
+    int todoOK =0;
+
+    for( int i = 0; i<tam; i++)
+    {
+        if(idDeportes == vec[i].ID)
+        {
+
+            strcpy(aux,vec[i].nombreDeDeporte);
+            todoOK =1;
+
+
+        }
+
+    }
+
+    return todoOK;
+
+
+
+}
+void mostrarPorDeporte(eDeportes descripcio[],int tam, eSocios socio[],int tamdep)
+{
+    system("cls");
+
+    for(int i = 0; i< tamdep; i++)
+    {
+        printf("%s \n \n ",descripcio[i].nombreDeDeporte);
+        for(int j =0; j< tam; j++)
+        {
+            if(socio[j].IdDeporte == descripcio[i].ID &&socio[j].estado ==1)
+            {
+                mostrarSocio(socio[j],tamdep,descripcio);
+            }
+
+
+        }
+        printf("\n\n\n ");
+
+
+    }
+
+
+
+}
+void cantidadDeSociosPorSector(eDeportes deportes[], int tamdep, eSocios socio[],int tam)
+{
+
+
+    int cont;
+
+    for(int i = 0; i<tamdep; i++)
+    {
+        cont =0;
+        printf("%s \n\n ",deportes[i].nombreDeDeporte);
+        for(int j = 0; j<tam; j++)
+        {
+            if( socio[j].IdDeporte == deportes[i].ID && socio[j].estado ==1)
+            {
+
+                cont++;
+
+            }
+
+
+
+
+        }
+
+        printf("cantidad: %d \n ",cont);
+
+    }
+
+
+}
+void deporteConMasSocios(eSocios socio[], int tam, eDeportes deportes [], int tamdep)
+{
+
+    int totales[tamdep];
+    int mayor;
+    int flag = 0;
+
+    for( int i = 0; i<tamdep; i++)
+    {
+        totales[i] = 0;
+        for( int j =0 ; j< tam; j++)
+        {
+            if(deportes[i].ID == socio[j].IdDeporte && socio[j].estado ==1)
+            {
+
+
+                totales[i]++;
+
+            }
+
+
+
+        }
+
+
+
+    }
+
+    for( int i = 0; i<tamdep; i++)
+    {
+        if(flag ==0 || mayor< totales[i])
+        {
+
+            mayor = totales[i];
+            flag = 1;
+
+        }
+
+
+    }
+
+    printf(" la cantidad mayor de socios es de %d \n\n",mayor);
+    printf(" En el o los siguientes deportes");
+
+    for( int i = 0; i<tamdep; i++)
+    {
+
+        if( totales[i] == mayor)
+        {
+            printf( " %s \n ",deportes[i].nombreDeDeporte);
+
+        }
+
+    }
+
+}
+
+int mostrarMenuDeComidas()
+{
+    int opc;
+    printf(" ID -----Comida\n");
+    printf("1----Pizza\n");
+    printf("2----Empanadas\n");
+    printf("3----Milanesas\n");
+    printf("4----tarta\n");
+    printf("5----Ensaladas\n");
+    printf("Digite su opcion\n");
+    scanf("%d",&opc);
+
+    return opc;
+
+}
+void pedirComida(eComidas comida[], eAlmuerzos almuerzo[], eSocios socio[], int tam)
+{
+
+
+
+    int legajoParaComida;
+    int flag=0;
+
+    // do
+    //{
+    if(flag==0)
+    {
+        printf("Ingrese su legajo: ");
+        scanf("%d",&legajoParaComida);
+
+        for( int i = 0 ; i<tam; i++)
+        {
+
+
+            if(legajoParaComida == socio[i].legajo)
+            {
+
+                legajoParaComida= almuerzo[i].legajoDeSocioQueComio;
+
+
+                comida[i].IdComida =mostrarMenuDeComidas();
+
+                printf(" Ingrese fecha: ");
+
+                scanf( "%d %d %d",&almuerzo[i].fecha.dia,&almuerzo[i].fecha.mes,&almuerzo[i].fecha.anio);
+
+
+
+                srand(time(NULL));
+
+                almuerzo[i].idAlmuerzo = (int) ((rand()/32767.1)*1001);
+
+                flag =1;
+            }
+
+
+            //}
+            // while(flag ==0);
+            if(flag ==1)
+            {
+
+                printf("su medido fue realizado con exito, retire con el numero %d", almuerzo[i].idAlmuerzo);
+                break;
+            }
+        }
+        if(flag ==0)
+        {
+            printf(" legajo no encontrado");
+
+
+        }
+
+
+
+
+    }
+}
+void mostrarAlmuerzos(eAlmuerzos almuerzo[], int tamAlm, eSocios socio[], int tam, eComidas comida[],int tamcom)
+{
+
+for (int i = 0; i<tamAlm; i++)
+{
+    for(int j = 0; j<tam;j++)
+    {
+        for(int k = 0; k<tamcom;k++)
+        {
+            printf(" %10d %10s %10s %d/%d/%d \n",almuerzo[i].idAlmuerzo,socio[j].nombre,comida[k].descripcioComida,almuerzo[i].fecha.dia,almuerzo[i].fecha.mes,almuerzo[i].fecha.anio);
+
+        }
+    }
+
+}
+}
